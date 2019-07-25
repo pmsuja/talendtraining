@@ -104,6 +104,25 @@
     <routinesParameter id="_uyjYZq7pEemp8d9mMIzpSA" name="TalendStringUtil"/>
     <routinesParameter id="_uy26YK7pEemp8d9mMIzpSA" name="SQLike"/>
   </parameters>
+  <node componentName="tFixedFlowInput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="32" posY="96">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tFixedFlowInput_1"/>
+    <elementParameter field="TEXT" name="NB_ROWS" value="2"/>
+    <elementParameter field="RADIO" name="USE_SINGLEMODE" value="true"/>
+    <elementParameter field="TABLE" name="VALUES">
+      <elementValue elementRef="SCHEMA_COLUMN" value="text"/>
+      <elementValue elementRef="VALUE" value="&quot;one&quot;,&quot;two&quot;"/>
+    </elementParameter>
+    <elementParameter field="RADIO" name="USE_INTABLE" value="false"/>
+    <elementParameter field="TABLE" name="INTABLE" show="false"/>
+    <elementParameter field="RADIO" name="USE_INLINECONTENT" value="false"/>
+    <elementParameter field="TEXT" name="ROWSEPARATOR" show="false" value="&quot;\n&quot;"/>
+    <elementParameter field="TEXT" name="FIELDSEPARATOR" show="false" value="&quot;;&quot;"/>
+    <elementParameter field="MEMO" name="INLINECONTENT" show="false" value=""/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <metadata connector="FLOW" name="tFixedFlowInput_1">
+      <column comment="" key="false" length="-1" name="text" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
+    </metadata>
+  </node>
   <node componentName="tMsgBox" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="160" posY="96">
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tMsgBox_1"/>
     <elementParameter field="TEXT" name="TITLE" value="&quot;Labs&quot;"/>
@@ -113,20 +132,26 @@
     <elementParameter field="MEMO" name="QUESTION_LABEL" show="false" value="&quot;Question ?&quot;"/>
     <elementParameter field="MEMO" name="MESSAGE" value="&quot;Hey Git&quot;"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
-    <metadata connector="FLOW" name="tMsgBox_1"/>
+    <metadata connector="FLOW" name="tMsgBox_1">
+      <column comment="" key="false" length="-1" name="text" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
+    </metadata>
   </node>
+  <connection connectorName="FLOW" label="row1" lineStyle="0" metaname="tFixedFlowInput_1" offsetLabelX="0" offsetLabelY="0" source="tFixedFlowInput_1" target="tMsgBox_1">
+    <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="row1"/>
+  </connection>
   <subjob>
-    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tMsgBox_1"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tFixedFlowInput_1"/>
     <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" show="false" value="92;131;150"/>
     <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
   </subjob>
-<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_05bb9a34-df3a-4783-a861-fcdfdb295a80"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>OYaTvZh+wj24KElXlugZg8DwLyQ1UGNdMxpwz39L5Y3O8qkUNl3mrrMU4FxyFDfdPLE4iSm0gsE6
-KpQRCxyg3Q==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_9d85c9ee-78f8-4268-ab81-4037db9923ef"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>ocuclpIOWKAhzkjYi8lIPkNAaNTLQfA4gD4VIQYi2pCtCTx5Y4ShKBzhlYI8XgDle14ZDPgYqx1b
-Vb6sTflPrQ==</DigestValue></Reference></SignedInfo><SignatureValue>wFnYtEh1Kh3l4F6bfYfdyfTRk67hKfBI1oXqk3qVpTN7gJdY4Xu/s/AZKHZxAf6bCPSBrpQ0a3Iu
-TdeTSBTjRrq3cJQRlC/+IhcfXfP51S5FZ3ZwX5ZekH4yQ6HfCkHyXiQLWNhKL+zByNYM5AuXjk0h
-it/ToN+2Ee0rLelVR+BM7idZxr6hEZRLZxmX46bQzJlX4vusBAACo7P1nb5i7S7aHzYATTT0w6+X
-kUEoauK7FZ4Pym4XIh/OotpY9yTSukYmRriLw/B3k91Tqo+ieig+/AScFbEvYlqvCKsHw4fMF++f
-YRiaq9s7zFX0BDcKQG3theDdx8fKG9fnUbZzxA==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_d23c3fbd-fd17-4a79-abd9-0be59fda9401"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>hLlTApDAL+VT0UaoWP3GdoN2OOv6lgvmWBMpCiRun22mTq/JGgkd0Wi3LvpTCraDtrPhwrA3q4ed
+k89tMA8Udg==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_7bbccf5e-6be6-43b1-aec2-77d60831330d"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>9HHXjafislKEf8/5L27iMSVFQ7xFSGTuO/jmBYGr2ifMK822ceddcfiEHKJDfpEW/FbFFMgJtKGt
+NVwUwPV0pA==</DigestValue></Reference></SignedInfo><SignatureValue>Qfw8PbOtWnjyJRO7ZTOdu3qSxr4062TQLARomMVSRZjDXHQ/WngkVKMVB5YwZEM4xqNRaJy9ufzw
+NHrlwCdpsk8NTFjDLwHSmlQV8iP8iuHPo8N1W2DcJFsEd7erzfiuKuitQdoLS3Iw2Rruezt//Ii0
+EQ1+7QV1x/5ESC10jDnrjEvWtyI1o2uZHaYQhBZzDhtZdYbcghEZPbZMstUQBDNbMOftG6lcX3Ik
+4Ugl/cs4ADrilL3vMSSIxhWOALCy9XHefjUNfMNQ6WWYziaPAamPlKE2cxK6kuVYOzKVG/pVUSqJ
+E+zsL+8W8yCMkJk9yjhPLcEXMHG6PhGOvV0A9Q==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
 BVBhcmlzMQ4wDAYDVQQHDAVQYXJpczEUMBIGA1UECgwLVGFsZW5kIEluYy4xDDAKBgNVBAsMA1Im
 RDEWMBQGA1UEAwwNVGFsZW5kIFImRCBDQTEiMCAGCSqGSIb3DQEJARYTc2VjdXJpdHlAdGFsZW5k
 LmNvbTAeFw0xODAxMTgwMDA2MTJaFw0yMTAxMTcwMDA2MTJaMGwxCzAJBgNVBAYTAkZSMQ4wDAYD
@@ -150,4 +175,4 @@ r3/fbKJ02Ni9kCnkY8wQS1yn45UNl1woSjryza4f4uLKGkrrIsUPXK+Vy4A1Il8XgFfmrtgA8m9s
 EHyu0OyAJH/agWN+GLhF/ssp26oXhiYqTkG4sQtNRFQG0isaYf/JWSt3f8Q+7/pnZpz4mfEAFimI
 BBLzRwDA6x9qqOn0RXxBo9pH16EO3SXPLR64cJum8B/RI/i8H6OkQDO1tEiE6UeceZk++U7fnD3c
 6i9Km85GTgQi6REsVZGIL/tZNIzN//qPwi7cDo3Cf/xmPrIKQhHJaxCqmbjGDmC8AXOaqNfWotVX
-Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_9d85c9ee-78f8-4268-ab81-4037db9923ef" Target="#_05bb9a34-df3a-4783-a861-fcdfdb295a80"><Timestamp>2019-07-25 14:39:22</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
+Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_7bbccf5e-6be6-43b1-aec2-77d60831330d" Target="#_d23c3fbd-fd17-4a79-abd9-0be59fda9401"><Timestamp>2019-07-25 14:43:28</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
